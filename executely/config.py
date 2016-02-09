@@ -67,7 +67,7 @@ class AppConfiguration(object):
                 classpath_separator = ';'
                 break
 
-        default_classpath = ['.', 'dependency/*', 'target/*', 'target/dependency/*', ('%s/*' % app_path), ('%s/dependency/*' % app_path)]
+        default_classpath = ['.', 'dependencies/*', 'target/*', 'target/dependency/*', ('%s/*' % app_path), ('%s/dependencies/*' % app_path)]
         classpath = classpath_separator.join(app_classpath + default_classpath)
         return classpath
 
