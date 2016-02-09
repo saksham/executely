@@ -36,7 +36,7 @@ def validate(app_name, app_path):
 def cleanup(app_name, app_path):
     validate(app_name, app_path)
     stop(app_name, app_path)
-    filelist = [ f for f in os.listdir(".") if f.endswith(".log") ]
+    filelist = [ f for f in os.listdir(app_path) if f.endswith(".log") ]
     for f in filelist:
             os.remove(f)
 
@@ -78,7 +78,7 @@ def start(app_name, app_path, java_command=Java.DEFAULT_COMMAND, detached=True):
     except Exception as inst:
         stdout.close()
         stderr.close()
-        print(type(inst), file=sys.stderr)  # the exception instance
+        print(type(inst), file=sys.stderr) # the exception instance
         print(inst.args, file=sys.stderr)  # arguments stored in .args
         print(inst, file=sys.stderr)
         exit(ExitCodes.FAILED_TO_START)
