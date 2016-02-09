@@ -78,9 +78,9 @@ def start(app_name, app_path, java_command=Java.DEFAULT_COMMAND, detached=True):
     except Exception as inst:
         stdout.close()
         stderr.close()
-        print(type(inst))  # the exception instance
-        print(inst.args)  # arguments stored in .args
-        print(inst)
+        print(type(inst), file=sys.stderr)  # the exception instance
+        print(inst.args, file=sys.stderr)  # arguments stored in .args
+        print(inst, file=sys.stderr)
         exit(ExitCodes.FAILED_TO_START)
 
     return(ExitCodes.SUCCESS)
